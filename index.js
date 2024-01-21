@@ -91,12 +91,12 @@ function engineerInfo() {
             },
             {
                 type: 'input',
-                name: 'officeNumber',
-                message: "What's the engineer's office number'?",
+                name: 'GitHub',
+                message: "What's the engineer's GitHub username'?",
             },
 ])
 .then((val) => {
-    const engineer = new Engineer(val.name, val.id, val.email, val.officeNumber)
+    const engineer = new Engineer(val.name, val.id, val.email, val.GitHub)
     outputTeam.push(engineer)
     completeTeam()
 })
@@ -123,12 +123,12 @@ function internInfo() {
             },
             {
                 type: 'input',
-                name: 'officeNumber',
-                message: "What's the intern's office number'?",
+                name: 'school',
+                message: "What's the intern's school'?",
             },
 ])
 .then((val) => {
-    const intern = new Intern(val.name, val.id, val.email, val.officeNumber)
+    const intern = new Intern(val.name, val.id, val.email, val.school)
     outputTeam.push(intern)
     completeTeam()
 })
