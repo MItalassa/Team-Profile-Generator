@@ -43,24 +43,34 @@ function managerInfo() {
     outputTeam.push(manager)
     completeTeam()
 })
+
+// Create a function to ask the user to add a new team member or complete the file
 };
 function completeTeam() {
     inquirer
         .prompt([
             {
-    type: 'confirm',
-    name: 'askAgain',
-    message: 'Want to enter another TV show favorite (just hit enter for YES)?',
-    default: true,
-},
-function ask() {
-  inquirer.prompt(questions).then((answers) => {
-    output.push(answers.tvShow);
-    if (answers.askAgain) {
-      ask();
-    } else {
-      console.log('Your favorite TV Shows:', output.join(', '));
-    }
-  });
-}
+            type: 'list',
+            name: 'what-next',
+            message: 'Would you like to add a new engineer or intern in your team? Or is your team complete?',
+            choices: ['Engineer', 'Intern', 'My team is complete!'],
+            },
+        ])
+        .then((val) =>{
+            if (val.what-next === 'Engineer') {
+                addEngineer();
+            }
+            if (val.what-next === 'Intern') {
+                addIntern();
+            }
+            else {
+                MyTeamPage();
+            }
+        });
+
+};
+
+// Create a function in user choose to add a new Engineer
+
+
 
