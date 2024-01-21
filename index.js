@@ -70,7 +70,7 @@ function completeTeam() {
 
 };
 
-// Create a function in user choose to add a new Engineer
+// Create a function if user choose to add a new Engineer
 function engineerInfo() {
     inquirer
         .prompt([
@@ -97,10 +97,40 @@ function engineerInfo() {
 ])
 .then((val) => {
     const engineer = new Engineer(val.name, val.id, val.email, val.officeNumber)
-    outputTeam.push (engineer)
+    outputTeam.push(engineer)
     completeTeam()
 })
 };
 
-
+// Create a function if user choose to add a new Intern
+function internInfo() {
+    inquirer
+        .prompt([
+            {
+                type: 'input',
+                name: 'name',
+                message: "What's the intern name?",
+            },
+            {
+                type: 'input',
+                name: 'id',
+                message: "What's the intern's employee ID?",
+            },
+            {
+                type: 'input',
+                name: 'email',
+                message: "What's the intern email address?",
+            },
+            {
+                type: 'input',
+                name: 'officeNumber',
+                message: "What's the intern's office number'?",
+            },
+])
+.then((val) => {
+    const intern = new Intern(val.name, val.id, val.email, val.officeNumber)
+    outputTeam.push(intern)
+    completeTeam()
+})
+};
 
