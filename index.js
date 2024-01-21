@@ -37,30 +37,30 @@ function managerInfo() {
                 name: 'officeNumber',
                 message: "What's the manager's office number'?",
             },
-])
-.then((val) => {
-    const manager = new Manager(val.name, val.id, val.email, val.officeNumber)
-    outputTeam.push(manager)
-    completeTeam()
-})
+        ])
+        .then((val) => {
+            const manager = new Manager(val.name, val.id, val.email, val.officeNumber)
+            outputTeam.push(manager)
+            completeTeam()
+        })
 
-// Create a function to ask the user to add a new team member or complete the file
+    // Create a function to ask the user to add a new team member or complete the file
 };
 function completeTeam() {
     inquirer
         .prompt([
             {
-            type: 'list',
-            name: 'what-next',
-            message: 'Would you like to add a new engineer or intern in your team? Or is your team complete?',
-            choices: ['Engineer', 'Intern', 'My team is complete!'],
+                type: 'list',
+                name: 'what-next',
+                message: 'Would you like to add a new engineer or intern in your team? Or is your team complete?',
+                choices: ['Engineer', 'Intern', 'My team is complete!'],
             },
         ])
-        .then((val) =>{
-            if (val.what-next === 'Engineer') {
+        .then((val) => {
+            if (val.what - next === 'Engineer') {
                 engineerInfo();
             }
-            if (val.what-next === 'Intern') {
+            if (val.what - next === 'Intern') {
                 internInfo();
             }
             else {
@@ -94,12 +94,12 @@ function engineerInfo() {
                 name: 'GitHub',
                 message: "What's the engineer's GitHub username'?",
             },
-])
-.then((val) => {
-    const engineer = new Engineer(val.name, val.id, val.email, val.GitHub)
-    outputTeam.push(engineer)
-    completeTeam()
-})
+        ])
+        .then((val) => {
+            const engineer = new Engineer(val.name, val.id, val.email, val.GitHub)
+            outputTeam.push(engineer)
+            completeTeam()
+        })
 };
 
 // Create a function if user choose to add a new Intern
@@ -126,11 +126,26 @@ function internInfo() {
                 name: 'school',
                 message: "What's the intern's school'?",
             },
-])
-.then((val) => {
-    const intern = new Intern(val.name, val.id, val.email, val.school)
-    outputTeam.push(intern)
-    completeTeam()
-})
+        ])
+        .then((val) => {
+            const intern = new Intern(val.name, val.id, val.email, val.school)
+            outputTeam.push(intern)
+            completeTeam()
+        })
 };
 
+function completeTeam() {
+    fs.writeFileAsync('HTML_TEAM.html', page - template(outputTeam), "utf-8")
+    console.log('HTML file created in output folder!');
+}
+
+async function startTeam() {
+
+    try {
+        const outputTeam = await managerInfo()
+    } catch (err) {
+        console.error(err);
+    }
+}
+
+startTeam()
