@@ -51,20 +51,26 @@ function completeTeam() {
         .prompt([
             {
                 type: 'list',
-                name: 'what-next',
+                name: 'what_next',
                 message: 'Would you like to add a new engineer or intern in your team? Or is your team complete?',
                 choices: ['Engineer', 'Intern', 'My team is complete!'],
             },
         ])
         .then((val) => {
-            if (val.what - next === 'Engineer') {
-                engineerInfo();
+            console.log(val)
+            if (val.what_next === 'Engineer') {
+               engineerInfo();
             }
-            if (val.what - next === 'Intern') {
+            if (val.what_next === 'Intern') {
                 internInfo();
             }
-            else {
-                MyTeamPage();
+            if (val.what_next === 'My team is complete!') {
+                // fs.writeFile(outputPath, render(outputTeam), "utf-8")
+                // console.log('HTML file created in output folder!')
+                fs.writeFile('./output/team.html', render(outputTeam), function (err) {
+                    if (err) throw err;
+                    console.log('Saved!');
+                  });
             }
         });
 
@@ -96,9 +102,14 @@ function engineerInfo() {
             },
         ])
         .then((val) => {
+            console.log("test1")
             const engineer = new Engineer(val.name, val.id, val.email, val.GitHub)
             outputTeam.push(engineer)
             completeTeam()
+        }).catch((err) => {
+            console.log("test")
+            console.error(err)
+
         })
 };
 
@@ -134,18 +145,16 @@ function internInfo() {
         })
 };
 
-function completeTeam() {
-    fs.writeFileAsync('HTML_TEAM.html', page - template(outputTeam), "utf-8")
-    console.log('HTML file created in output folder!');
-}
+// async function startTeam() {
 
-async function startTeam() {
+//     try {
+//         const outputTeam = await managerInfo()
+//     } catch (err) {
+//         console.error(err);
+//     }
+// }
 
-    try {
-        const outputTeam = await managerInfo()
-    } catch (err) {
-        console.error(err);
-    }
-}
+// startTeam()
 
-startTeam()
+// managerInfo();
+completeTeam();
