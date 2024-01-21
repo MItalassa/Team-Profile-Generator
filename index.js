@@ -58,10 +58,10 @@ function completeTeam() {
         ])
         .then((val) =>{
             if (val.what-next === 'Engineer') {
-                addEngineer();
+                engineerInfo();
             }
             if (val.what-next === 'Intern') {
-                addIntern();
+                internInfo();
             }
             else {
                 MyTeamPage();
@@ -71,6 +71,36 @@ function completeTeam() {
 };
 
 // Create a function in user choose to add a new Engineer
+function engineerInfo() {
+    inquirer
+        .prompt([
+            {
+                type: 'input',
+                name: 'name',
+                message: "What's the engineer name?",
+            },
+            {
+                type: 'input',
+                name: 'id',
+                message: "What's the engineer's employee ID?",
+            },
+            {
+                type: 'input',
+                name: 'email',
+                message: "What's the engineer email address?",
+            },
+            {
+                type: 'input',
+                name: 'officeNumber',
+                message: "What's the engineer's office number'?",
+            },
+])
+.then((val) => {
+    const engineer = new Engineer(val.name, val.id, val.email, val.officeNumber)
+    outputTeam.push (engineer)
+    completeTeam()
+})
+};
 
 
 
