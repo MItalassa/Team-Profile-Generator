@@ -30,6 +30,7 @@ Look no further! With "Team-Profile Generator" you will be able to create from s
   ## Usage
 
     <img src="./assets/images/Screenshot (13).png">
+    <img src="./assets/images/Screenshot (12).png">
 
   💽  Answer to the questions showing in your CLI: those will prompt you to write the different team cards, starting from the manager card. Once you answered all the question for the employee card, you will be asked if you want to add a new team menber or you have completed your team. If you choose "My team is complete!" the app will generate a "team.html" file ready for you to be added on your team web page!
 
