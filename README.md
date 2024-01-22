@@ -6,7 +6,13 @@
 
   ## Description
 
-  📖 User Story
+  📖 ## User Story
+
+As a manager a user want to generate a webpage that displays my team's basic info so that a user have quick access to their emails and GitHub profiles.
+
+Are you looking for a way to quickly update your team web page?
+Look no further! With "Team-Profile Generator" you will be able to create from scratch a "My team" page only answering to a few questions!
+
 
   ## 📂 List of Contents
   * [Installation](#installation)
@@ -23,8 +29,8 @@
 
   ## Usage
 
-    <img src= "./assets/image/Screenshot (13).png>#
-    
+    <img src= "./assets/image/Screenshot (13).png">
+
   💽  Answer to the questions showing in your CLI: those will prompt you to write the different team cards, starting from the manager card. Once you answered all the question for the employee card, you will be asked if you want to add a new team menber or you have completed your team. If you choose "My team is complete!" the app will generate a "team.html" file ready for you to be added on your team web page!
 
   ## How to Contribute
