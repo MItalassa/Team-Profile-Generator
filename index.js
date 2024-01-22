@@ -57,23 +57,19 @@ function completeTeam() {
             },
         ])
         .then((val) => {
-            console.log(val)
             if (val.what_next === 'Engineer') {
-               engineerInfo();
+                engineerInfo();
             }
             if (val.what_next === 'Intern') {
                 internInfo();
             }
             if (val.what_next === 'My team is complete!') {
-                // fs.writeFile(outputPath, render(outputTeam), "utf-8")
-                // console.log('HTML file created in output folder!')
-                fs.writeFile('./output/team.html', render(outputTeam), function (err) {
+                fs.writeFile(outputPath, render(outputTeam), function (err) {
                     if (err) throw err;
-                    console.log('Saved!');
-                  });
-            }
+                });
+                console.log('HTML file created in output folder!');
+            };
         });
-
 };
 
 // Create a function if user choose to add a new Engineer
@@ -144,17 +140,4 @@ function internInfo() {
             completeTeam()
         })
 };
-
-// async function startTeam() {
-
-//     try {
-//         const outputTeam = await managerInfo()
-//     } catch (err) {
-//         console.error(err);
-//     }
-// }
-
-// startTeam()
-
-// managerInfo();
-completeTeam();
+managerInfo()
