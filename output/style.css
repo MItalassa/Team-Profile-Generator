@@ -1,15 +1,28 @@
 .jumbotron {
     background-color: rgb(166,207, 213);
-    text-emphasis-color:rgb(82, 43, 41);
+}
+
+h1 {
+    color:rgb(82, 43, 41);
     font-family: 'Montserrat', sans-serif;
-    font-size: 700;
+    font-size: 900;
 }
 
 .card-header {
     background-color:rgb(74, 109, 124);
-    text-emphasis-color:rgb(82, 43, 41);
+}
+
+h2 {
+    color:rgb(82, 43, 41);
     font-family: 'Montserrat', sans-serif;
     font-size: 300;
+}
+
+h3 {
+    color:rgb(82, 43, 41);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 200;
+    font-style: italic;
 }
 
 .card-body {

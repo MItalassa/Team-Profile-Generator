@@ -98,14 +98,11 @@ function engineerInfo() {
             },
         ])
         .then((val) => {
-            console.log("test1")
             const engineer = new Engineer(val.name, val.id, val.email, val.GitHub)
             outputTeam.push(engineer)
             completeTeam()
         }).catch((err) => {
-            console.log("test")
             console.error(err)
-
         })
 };
 
